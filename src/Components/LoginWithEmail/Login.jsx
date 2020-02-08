@@ -90,7 +90,7 @@ const Login = () => {
                     <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
                     <Col xs="4" md="4" sm="4" lg="4">
                         <LoginParagraph>
-                            Do you have an account?&nbsp;<Link to="#"> Log in?</Link>
+                            no account?&nbsp;<Link to="/signup"> Sign up?</Link>
                         </LoginParagraph>
                     </Col>
                 </Row>
@@ -137,7 +137,7 @@ const Login = () => {
                             </InputGroup.Prepend>
                         </InputGroup>
                     </Form.Group>
-                    <Terms> Have you forgotten your password?&nbsp; <Link style={{ color: 'black' }} to="/recover-password"> Recover it </Link> </Terms>
+                    <Terms> Have you forgotten your password?&nbsp; <Link style={{ color: 'black' }} to="/email-confirmation"> Recover it </Link> </Terms>
 
                     <Col sm={{ span: 12 }}>
                         <Button style={{ width: '100%', height: '52px' }} type="submit">Sign In</Button>

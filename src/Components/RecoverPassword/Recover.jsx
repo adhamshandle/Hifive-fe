@@ -68,21 +68,20 @@ top : 15px;
 
 
 const Terms = styled.p`
-left: 35.06%;
-right: 36.81%;
-top: 67.78%;
-bottom: 25.67%;
+padding: 11px;
 
 font-family: Quicksand;
 font-style: normal;
-font-weight: 500;
-font-size: 15px;
-line-height: 19px;
-text-align: center;
+font-weight: normal;
+font-size: 20px;
+line-height: 25px;
+display: flex;
+align-items: center;
 
 color: #000000;
+
 `
-const SignUp = () => {
+const Recover = () => {
     return (
         <React.Fragment>
             <Container>
@@ -97,23 +96,8 @@ const SignUp = () => {
 
             </Container>
             <StyledContainer>
-                {/* <ButtonStyledContainer> */}
-                <GoogleLogin
-                    clientId="889751826819-t7g5sgp8rdj4no3si8oisa5or8bh72mh.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                />
-            </StyledContainer>
-            <StyledContainer>
-                {/* <ButtonContainer> */}
-                        Continue with Email
-                {/* </ButtonContainer> */}
-            </StyledContainer>
-            <StyledContainer>
                 <Form style={{ width: '31%' }}>
                     <Form.Group controlId="formGroupEmail">
-                        <label>Email</label>
                         <InputGroup>
 
                             <Form.Control
@@ -127,20 +111,11 @@ const SignUp = () => {
                             </InputGroup.Prepend>
                         </InputGroup>
                     </Form.Group>
-                    <Form.Group controlId="formGroupPassword">
-                        <InputGroup>
-                            <Form.Control type="password"
-                                placeholder="Password"
-                                required />
-                            <InputGroup.Prepend>
-                                <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
-                            </InputGroup.Prepend>
-                        </InputGroup>
-                    </Form.Group>
-                    <Terms>I accept the&nbsp; <b>terms and conditions</b>&nbsp; and the&nbsp; <b>privacy policy</b> </Terms>
+                  
+                    <Terms>We will send you an email with a link from which you can set a new password </Terms>
 
                     <Col sm={{ span: 12 }}>
-                        <Button style={{ width: '100%', height: '52px' }} type="submit">Sign Up</Button>
+                        <Button variant="outline-primary" style={{ width: '100%', height: '52px' }} type="submit">Send</Button>
                     </Col>
                 </Form>
             </StyledContainer>
@@ -151,4 +126,4 @@ const SignUp = () => {
         </React.Fragment>
     )
 }
-export default SignUp
+export default Recover
