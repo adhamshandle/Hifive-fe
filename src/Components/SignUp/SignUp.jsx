@@ -82,7 +82,7 @@ text-align: center;
 
 color: #000000;
 `
-const Login = () => {
+const SignUp = () => {
     return (
         <React.Fragment>
             <Container>
@@ -137,10 +137,10 @@ const Login = () => {
                             </InputGroup.Prepend>
                         </InputGroup>
                     </Form.Group>
-                    <Terms> Have you forgotten your password?&nbsp; <Link style={{ color: 'black' }} to="/recover-password"> Recover it </Link> </Terms>
+                    <Terms>I accept the&nbsp; <b>terms and conditions</b>&nbsp; and the&nbsp; <b>privacy policy</b> </Terms>
 
                     <Col sm={{ span: 12 }}>
-                        <Button style={{ width: '100%', height: '52px' }} type="submit">Sign In</Button>
+                        <Button style={{ width: '100%', height: '52px' }} type="submit">Sign Up</Button>
                     </Col>
                 </Form>
             </StyledContainer>
@@ -151,4 +151,4 @@ const Login = () => {
         </React.Fragment>
     )
 }
-export default Login
+export default SignUp
