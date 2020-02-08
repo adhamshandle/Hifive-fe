@@ -6,6 +6,28 @@
   height: 40vmin;
   pointer-events: none;
 }
+.form-group{
+  position: relative;
+  padding:10px;
+  border:2px solid;
+  margin:10px;
+}
+input#formGroupEmail{
+  border: none;
+}
+input#formGroupPassword{
+  border: none;
+}
+.form-group>label{
+  position:absolute;
+  top:-22%;
+  left:20px;
+  background-color:white;
+}
+
+.form-group>input{
+  border:none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
