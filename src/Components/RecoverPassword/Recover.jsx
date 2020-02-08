@@ -87,11 +87,6 @@ const Recover = () => {
             <Container>
                 <Row>
                     <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
-                    <Col xs="4" md="4" sm="4" lg="4">
-                        <LoginParagraph>
-                            Do you have an account?&nbsp;<Link to="/login"> Log in?</Link>
-                        </LoginParagraph>
-                    </Col>
                 </Row>
 
             </Container>

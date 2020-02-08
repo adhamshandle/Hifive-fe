@@ -20,8 +20,7 @@ src: url(${props => props.src});
 `
 
 const StyledContainer = styled.div`
-text-align: center;
-display:flex;
+display: flex;
 justify-content: center;
 margin-top: 2%;
 
@@ -76,11 +75,13 @@ font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 25px;
+display: flex;
+align-items: center;
 
 color: #000000;
 
 `
-const EmailConfirmation = () => {
+const ResetPassowrd = () => {
     return (
         <React.Fragment>
             <Container>
@@ -90,25 +91,23 @@ const EmailConfirmation = () => {
 
             </Container>
             <StyledContainer>
-                <Container>
-                <Row>
-                <Col sm={12} md={12} lg={12} xs={12}>
-                <p><b>Create your web today with us!</b></p>
-                </Col>
-                </Row>
-                <Row>
-                <Col sm={12} md={12} lg={12} xs={12}>
-                <Terms>Please click on the button below to confirm your email</Terms>
-                </Col>
-                </Row>
-                <Row>
-                    <Col sm={12} md={12} lg={12} xs={12}>
-                        <StyledContainer>
-                        <Link to="/recover"> <Button variant="outline-primary" style={{ width: '442.86px', height: '71px' }} >Confirm email</Button></Link>
-                        </StyledContainer>
+                <Form style={{ width: '29%' }}>
+                <Form.Group controlId="formGroupPassword">
+                        <InputGroup>
+                            <Form.Control type="password"
+                                placeholder="New Password"
+                                required />
+                            <InputGroup.Prepend>
+                                <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
+                            </InputGroup.Prepend>
+                        </InputGroup>
+                    </Form.Group>
+                  
+
+                    <Col sm={{ span: 12 }}>
+                        <Button variant="outline-primary" style={{ width: '442.86px', height: '71.43px', marginTop:'12%' }} type="submit">Save</Button>
                     </Col>
-                </Row>
-                </Container>
+                </Form>
             </StyledContainer>
 
 
@@ -117,4 +116,4 @@ const EmailConfirmation = () => {
         </React.Fragment>
     )
 }
-export default EmailConfirmation
+export default ResetPassowrd

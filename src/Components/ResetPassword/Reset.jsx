@@ -80,12 +80,13 @@ line-height: 25px;
 color: #000000;
 
 `
-const EmailConfirmation = () => {
+const Reset = () => {
     return (
         <React.Fragment>
             <Container>
                 <Row>
                     <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
+                    
                 </Row>
 
             </Container>
@@ -93,18 +94,18 @@ const EmailConfirmation = () => {
                 <Container>
                 <Row>
                 <Col sm={12} md={12} lg={12} xs={12}>
-                <p><b>Create your web today with us!</b></p>
+                <p><b>Have you forgotten your password?</b></p>
                 </Col>
                 </Row>
                 <Row>
                 <Col sm={12} md={12} lg={12} xs={12}>
-                <Terms>Please click on the button below to confirm your email</Terms>
+                <Terms>Please click on the button below to set a new password</Terms>
                 </Col>
                 </Row>
                 <Row>
                     <Col sm={12} md={12} lg={12} xs={12}>
                         <StyledContainer>
-                        <Link to="/recover"> <Button variant="outline-primary" style={{ width: '442.86px', height: '71px' }} >Confirm email</Button></Link>
+                        <Link to="/reset-password"> <Button variant="outline-primary" style={{ width: '442.86px', height: '71px' }} >Set new password</Button></Link>
                         </StyledContainer>
                     </Col>
                 </Row>
@@ -117,4 +118,4 @@ const EmailConfirmation = () => {
         </React.Fragment>
     )
 }
-export default EmailConfirmation
+export default Reset
