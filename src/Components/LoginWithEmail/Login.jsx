@@ -6,6 +6,12 @@ import { GoogleLogin } from 'react-google-login';
 import Email from '../../Assets/Images/email.png';
 import Lock from '../../Assets/Images/lock.png';
 import { Col, Row, Form, Button, InputGroup, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import history from '../../history';
+
+
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -82,73 +88,143 @@ text-align: center;
 
 color: #000000;
 `
-const Login = () => {
-    return (
-        <React.Fragment>
-            <Container>
-                <Row>
-                    <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
-                    <Col xs="4" md="4" sm="4" lg="4">
-                        <LoginParagraph>
-                            no account?&nbsp;<Link to="/signup"> Sign up?</Link>
-                        </LoginParagraph>
-                    </Col>
-                </Row>
+// const Login = () => {
+class Login extends React.Component {
 
-            </Container>
-            <StyledContainer>
-                {/* <ButtonStyledContainer> */}
-                <GoogleLogin
-                    clientId="889751826819-t7g5sgp8rdj4no3si8oisa5or8bh72mh.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                />
-            </StyledContainer>
-            <StyledContainer>
-                {/* <ButtonContainer> */}
-                        Continue with Email
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { 
+    //         email: '' ,
+    //         password: ''
+    //     };
+    //   }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+        toast.configure({
+            autoClose: 2000,
+            draggable: false,
+        });
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.login = this.login.bind(this);
+    }
+    handleChangeEmail(event) {
+        this.setState({ email: event.target.value });
+    }
+    handleChangePassword(event) {
+        this.setState({ password: event.target.value });
+    }
+    login(event) {
+        event.preventDefault();
+        const email = ''.concat(this.state.email);
+        const password = ''.concat(this.state.password)
+        axios.get('http://localhost:5001/user/login', { headers: { email: email, password: password } })
+            .then(res => {
+                //    console.log(res);
+                if (res.data.loginMessage == "wrong email or password") {
+                    toast.error(res.data.loginMessage, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                }
+                else if (res.data.loginMessage == "successful login") {
+                    toast.success(res.data.loginMessage, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                    localStorage.setItem('token', res.data.token);
+                    history.push('/home')
+                }
+                else {
+                    toast.info("Something went wrong", {
+                        position: toast.POSITION.BOTTOM_CENTER
+                    });
+                }
+                //  console.log(res.data);
+                // console.log("local stor. : " , localStorage.token)
+            })
+
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <Container>
+                    <Row>
+                        <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
+                        <Col xs="4" md="4" sm="4" lg="4">
+                            <LoginParagraph>
+                                no account?&nbsp;<Link to="/signup"> Sign up?</Link>
+                            </LoginParagraph>
+                        </Col>
+                    </Row>
+
+                </Container>
+                <StyledContainer>
+                    {/* <ButtonStyledContainer> */}
+                    <GoogleLogin
+                        clientId="889751826819-t7g5sgp8rdj4no3si8oisa5or8bh72mh.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
+                        buttonText="LOGIN WITH GOOGLE"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                    />
+                </StyledContainer>
+                <StyledContainer>
+                    {/* <ButtonContainer> */}
+                    Continue with Email
                 {/* </ButtonContainer> */}
-            </StyledContainer>
-            <StyledContainer>
-                <Form style={{ width: '31%' }}>
-                    <Form.Group controlId="formGroupEmail">
-                        <label>Email</label>
-                        <InputGroup>
+                </StyledContainer>
+                <StyledContainer>
+                    <Form style={{ width: '31%' }} onSubmit={this.login}>
+                        <Form.Group controlId="formGroupEmail">
+                            <label>Email </label>
+                            <InputGroup>
 
-                            <Form.Control
-                                aria-describedby="inputGroupPrepend"
-                                type="email"
-                                placeholder="Email"
-                                required
-                            />
-                            <InputGroup.Prepend>
-                                <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Email} /></InputGroup.Text>
-                            </InputGroup.Prepend>
-                        </InputGroup>
-                    </Form.Group>
-                    <Form.Group controlId="formGroupPassword">
-                        <InputGroup>
-                            <Form.Control type="password"
-                                placeholder="Password"
-                                required />
-                            <InputGroup.Prepend>
-                                <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
-                            </InputGroup.Prepend>
-                        </InputGroup>
-                    </Form.Group>
-                    <Terms> Have you forgotten your password?&nbsp; <Link style={{ color: 'black' }} to="/email-confirmation"> Recover it </Link> </Terms>
+                                <Form.Control
+                                    value={this.state.email}
+                                    onChange={(e) => this.handleChangeEmail(e)}
+                                    aria-describedby="inputGroupPrepend"
+                                    type="email"
+                                    placeholder="Email"
+                                    required
+                                />
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Email} /></InputGroup.Text>
+                                </InputGroup.Prepend>
+                            </InputGroup>
+                        </Form.Group>
+                        <Form.Group controlId="formGroupPassword">
+                            <InputGroup>
+                                <Form.Control
+                                    value={this.state.password}
+                                    onChange={(e) => this.handleChangePassword(e)}
+                                    type="password"
+                                    placeholder="Password"
+                                    required />
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
+                                </InputGroup.Prepend>
+                            </InputGroup>
+                        </Form.Group>
+                        <Terms> Have you forgotten your password?&nbsp; <Link style={{ color: 'black' }} to="/email-confirmation"> Recover it </Link> </Terms>
 
-                    <Col sm={{ span: 12 }}>
-                        <Button style={{ width: '100%', height: '52px' }} type="submit">Sign In</Button>
-                    </Col>
-                </Form>
-            </StyledContainer>
+                        <Col sm={{ span: 12 }}>
+                            <Button style={{ width: '100%', height: '52px' }} type="submit">Sign In</Button>
+                        </Col>
+                    </Form>
+                </StyledContainer>
 
+                {/* </ButtonContainer> */}
 
-            {/* </ButtonContainer> */}
+            </React.Fragment>
 
-        </React.Fragment>
-    )
+        )
+    }
 }
+
+
+
+
 export default Login
