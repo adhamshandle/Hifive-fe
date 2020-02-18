@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
 import Estado from '../../Assets/Images/estado1.png'
+import Programacion from '../../Assets/Images/programacion.png'
+import Google from '../../Assets/Images/Google.png'
+import MantenimientoWeb from '../../Assets/Images/mantenimiento-web.png'
 import Time from '../../Assets/Images/Time.png'
 import Atraer from '../../Assets/Images/atraer1.png'
 import UI from '../../Assets/Images/ui1.png'
@@ -15,7 +18,48 @@ width: 154.11px;
 height: 154.11px;
 margin-top: 9%;
 `
-const UiImage = styled.img `
+const MantenimientoWebImage = styled.img`
+position: absolute;
+src: url(${props => props.src});
+width: 120px;
+height: 120px;
+left: 380px;
+top: 340px;
+`
+const ProgramacionImage = styled.img`
+src: url(${props => props.src});
+width: 120px;
+height: 120px;
+left: 137.2px;
+position: absolute;
+top: 399px;
+
+`
+const Whatareyouwaiting = styled.p`
+width: 100%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 300;
+font-size: 44px;
+line-height: 60px;
+/* or 136% */
+display: flex;
+align-items: center;
+justify-content:center;
+
+
+color: rgba(0, 0, 0, 0.7);
+`
+
+const GoogleImage = styled.img`
+src: url(${props => props.src});
+margin-top: 15%;
+margin-left:11%;
+
+`
+
+const UiImage = styled.img`
 src: url(${props => props.src});
 margin-top: 20%;
 margin-left: 13%;
@@ -73,7 +117,25 @@ align-items: center;
 
 color: #000000;
 `
-const KeepCalm = styled.p `
+
+const Specified = styled.p`
+left: 374px;
+width:100%;
+-webkit-text-stroke: 3px rgba(0, 0, 0, 0.7);
+font-family: Poppins;
+font-style: normal;
+font-weight: 900;
+font-size: 48px;
+line-height: 60px;
+/* or 125% */
+
+display: flex;
+align-items: center;
+justify-content:center;
+
+color: rgba(0, 0, 0, 0.7);
+`
+const KeepCalm = styled.p`
 width: 393px;
 height: 117px;
 font-family: Poppins;
@@ -86,7 +148,7 @@ display: flex;
 align-items: center;
 color: #000000;
 `
-const YourDigital = styled.p `
+const YourDigital = styled.p`
 width: 576px;
 height: 277px;
 font-family: Poppins;
@@ -117,11 +179,21 @@ const SectionSix = () => {
             </Row>
             <Row>
                 <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
-                <UiImage src={UI}></UiImage>
+                    <UiImage src={UI}></UiImage>
+                    <GoogleImage src={Google}></GoogleImage>
+                    <ProgramacionImage src={Programacion}></ProgramacionImage>
+                    <MantenimientoWebImage src={MantenimientoWeb}></MantenimientoWebImage>
+
                 </Col>
                 <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
-              <KeepCalm>Keep calm and subscribe</KeepCalm>
-              <YourDigital>Your digital marketing team takes care of everything </YourDigital>
+                    <KeepCalm>Keep calm and subscribe</KeepCalm>
+                    <YourDigital>Your digital marketing team takes care of everything </YourDigital>
+                </Col>
+            </Row>
+            <Row>
+                <Col style={{ padding: '0px' }} md={12} lg={12} sm={12} xs={12}>
+                    <Whatareyouwaiting>What are you waiting for? </Whatareyouwaiting>
+                    <Specified>Start attracting clients now!</Specified>
                 </Col>
             </Row>
         </Container>

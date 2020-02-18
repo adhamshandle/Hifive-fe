@@ -14,6 +14,7 @@ import SectionFour from '../Sections/SectionFour';
 import SectionFive from '../Sections/SectionFive';
 import SectionSeven from '../Sections/SectionSeven';
 import SectionSix from '../Sections/SectionSix';
+import SectionEight from '../Sections/SectionEight';
 
 const Contained = styled.div`
 position: relative;
@@ -34,6 +35,7 @@ const Home = () => {
             <SectionFour />
             <SectionFive />
             <SectionSix />
+            <SectionEight />
             <SectionSeven />
         </Contained>
 
