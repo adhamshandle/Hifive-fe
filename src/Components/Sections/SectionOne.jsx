@@ -19,7 +19,7 @@ left: 5.75%;
 right: 7.75%;
 top: 22.33%;
 bottom: 23.33%;
-
+height: 478px;
 background: #FFFFFF;
 opacity: 0.9;
 border-radius: 50px;
@@ -48,10 +48,12 @@ color: #000000;
 `
 const Specified = styled.span`
 height: 79px;
-font-family: Poppins;
+font-family: 'Poppins', sans-serif;
 font-style: normal;
 font-weight: 900;
+-webkit-text-stroke: 3px black;
 font-size: 48px;
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 line-height: 30px;
 display: -webkit-box;
 display: -webkit-flex;
@@ -129,7 +131,7 @@ color: #303030;
 `
 const AdButton = styled.button`
 position: absolute;
-    left: 29.25%;
+    left: 33.25%;
     right: 36.75%;
     width: 400px;
     height: 75px;
@@ -167,21 +169,25 @@ color: #303030;
 `
 const EllipseParagraph = styled.p`
 position: absolute;
-width: 116px;
-height: 89px;
-left: 1388px;
-top: 179px;
-
-font-family: Quicksand;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 45px;
-display: flex;
-align-items: flex-end;
-text-align: center;
-
-color: #FFFFFF;
+    width: 101px;
+    height: 89px;
+    left: 22px;
+    top: 38px;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 45px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    text-align: center;
+    color: #FFFFFF;
 `
 
 const SectionOne = () => {
@@ -190,14 +196,14 @@ const SectionOne = () => {
             <Row>
                 <Col style={{ padding: '0px' }} md={12} lg={12} sm={12} xs={12}>
                     <BackgroundImage src={businessWomen} />
-                    <Ellipse><EllipseParagraph>29,99€/month</EllipseParagraph></Ellipse>
+                    <Ellipse><EllipseParagraph>29,99€<br></br><span style={{ fontSize: '24px', display: 'contents' }}>/month</span></EllipseParagraph></Ellipse>
 
                     <SectionParagraph>For you&nbsp;<Specified>lawyers</Specified> </SectionParagraph>
                     <Ad>
-                        <AdHeader style={{ position: 'absolute', left: '14.5%', right: '52.69%', top: '29.44%', bottom: '64.56%' }}>Your Web</AdHeader>
-                        <AdHeader style={{ position: 'absolute', left: '54.12%', right: '16.44%', top: '29.44%', bottom: '64.56%' }}>Digital Marketing</AdHeader>
-                        <HeaderParagraph style={{ position: 'absolute', left: '4.5%', right: '52.5%', top: '30.44%', bottom: '47.22%' }}>Your website optimized especially for viewing on smartphones </HeaderParagraph>
-                        <HeaderParagraph style={{ position: 'absolute', left: '47.12%', right: '17.31%', top: '21.44%', bottom: '47.22%', wordSpacing: '5px' }}>We manage your Google Advertising Campaign</HeaderParagraph>
+                        <AdHeader style={{ position: 'absolute', left: '18.5%', right: '52.69%', top: '29.44%', bottom: '64.56%' }}>Your Web</AdHeader>
+                        <AdHeader style={{ position: 'absolute', left: '58.12%', right: '16.44%', top: '29.44%', bottom: '64.56%' }}>Digital Marketing</AdHeader>
+                        <HeaderParagraph style={{ position: 'absolute', left: '8.5%', right: '52.5%', top: '30.44%', bottom: '47.22%' }}>Your website optimized especially for viewing on smartphones </HeaderParagraph>
+                        <HeaderParagraph style={{ position: 'absolute', left: '51.12%', right: '17.31%', top: '21.44%', bottom: '47.22%', wordSpacing: '5px' }}>We manage your Google Advertising Campaign</HeaderParagraph>
                         <HeaderImage src={plus} draggable={false} />
                         <AdButton><ButtonParagraph>See sample web</ButtonParagraph></AdButton>
                     </Ad>
