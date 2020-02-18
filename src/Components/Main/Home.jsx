@@ -13,6 +13,7 @@ import SectionThree from '../Sections/SectionThree';
 import SectionFour from '../Sections/SectionFour';
 import SectionFive from '../Sections/SectionFive';
 import SectionSeven from '../Sections/SectionSeven';
+import SectionSix from '../Sections/SectionSix';
 
 const Contained = styled.div`
 position: relative;
@@ -28,11 +29,12 @@ const Home = () => {
         <Contained>
             <Header />
             <SectionOne />
-            <SectionTwo/>
-            <SectionThree/>
+            <SectionTwo />
+            <SectionThree />
             <SectionFour />
             <SectionFive />
-            <SectionSeven/>
+            <SectionSix />
+            <SectionSeven />
         </Contained>
 
     )

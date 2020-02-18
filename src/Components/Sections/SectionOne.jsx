@@ -4,7 +4,7 @@ import businessWomen from '../../Assets/Images/businesswoman1.png'
 import { Col, Row, Container } from 'react-bootstrap';
 import plus from '../../Assets/Images/+.png'
 import Header from '../Navbar/Header';
-
+import px2vw from "../../utils/px2vw";
 const SectionOneContainer = styled.div`
 background-image: url(${businessWomen});
 `
@@ -67,10 +67,15 @@ text-align: center;
 color: #000000;
 `
 const Ellipse = styled.div`
+@media (min-width: 1900px) {
+    left: 2295px;
+    top: 157px;
+
+  }
 position: absolute;
 width: 160px;
 height: 160px;
-left: 1405px;
+left: 1265px;
 border-radius: 78px;
 top: 77px;
 z-index: 2;

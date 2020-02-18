@@ -125,7 +125,12 @@ width: 317.25px;
 height: 69.33px;
 left: 45px;
 top: 550px;
-
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+color: #307DFE;
 border: 1px solid #307DFE;
 box-sizing: border-box;
 border-radius: 5px;
