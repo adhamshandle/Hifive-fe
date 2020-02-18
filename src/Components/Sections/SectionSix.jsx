@@ -132,7 +132,7 @@ line-height: 60px;
 display: flex;
 align-items: center;
 justify-content:center;
-
+padding-bottom:6%;
 color: rgba(0, 0, 0, 0.7);
 `
 const KeepCalm = styled.p`
