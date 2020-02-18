@@ -165,7 +165,7 @@ class Login extends React.Component {
                 <StyledContainer>
                     {/* <ButtonStyledContainer> */}
                     <GoogleLogin
-                        clientId="889751826819-t7g5sgp8rdj4no3si8oisa5or8bh72mh.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
+                        clientId="272126738583-7vt7v22s8g8lr5ivd2g054t00me4d12p.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
                         buttonText="LOGIN WITH GOOGLE"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
