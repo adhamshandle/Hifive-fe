@@ -8,8 +8,11 @@ import Header from '../Navbar/Header'
 import Lock from '../../Assets/Images/lock.png';
 import { FormControl, Navbar, Form, Button, Nav, Container } from 'react-bootstrap';
 import SectionOne from '../Sections/SectionOne';
+import SectionTwo from '../Sections/SectionTwo';
+import SectionThree from '../Sections/SectionThree';
 import SectionFour from '../Sections/SectionFour';
 import SectionFive from '../Sections/SectionFive';
+import SectionSeven from '../Sections/SectionSeven';
 
 const Contained = styled.div`
 position: relative;
@@ -25,8 +28,11 @@ const Home = () => {
         <Contained>
             <Header />
             <SectionOne />
+            <SectionTwo/>
+            <SectionThree/>
             <SectionFour />
             <SectionFive />
+            <SectionSeven/>
         </Contained>
 
     )
