@@ -6,6 +6,10 @@ import { GoogleLogin } from 'react-google-login';
 import Email from '../../Assets/Images/email.png';
 import Lock from '../../Assets/Images/lock.png';
 import { Col, Row, Form, Button, InputGroup, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import history from '../../history';
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -81,7 +85,48 @@ align-items: center;
 color: #000000;
 
 `
-const Recover = () => {
+// const Recover = () => {
+    class Recover extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                email: '',
+            };
+            toast.configure({
+                autoClose: 2000,
+                draggable: false,
+            });
+            this.handleChangeEmail = this.handleChangeEmail.bind(this);
+            this.sendEmail = this.sendEmail.bind(this);
+        }
+        handleChangeEmail(event) {
+            this.setState({ email: event.target.value });
+        }
+        sendEmail(event) {
+            event.preventDefault();
+            const email = ''.concat(this.state.email);
+            // const token = ''.concat(localStorage.token)
+            axios.post('http://localhost:5001/user/reset-email',null,
+            { headers: { email: email }})
+                .then(res => {
+                    //    console.log(res);
+                     if (res.data.resetEmailMessage == "Email sent") {
+                        toast.success(res.data.resetEmailMessage, {
+                            position: toast.POSITION.TOP_RIGHT
+                        });
+                        history.push('/login')
+                    }
+                    else {
+                        toast.info(res.data.resetEmailMessage, {
+                            position: toast.POSITION.TOP_RIGHT
+                        });
+                    }
+    
+                    //  console.log(res.data);  
+                })
+    
+        }
+        render() {
     return (
         <React.Fragment>
             <Container>
@@ -91,11 +136,13 @@ const Recover = () => {
 
             </Container>
             <StyledContainer>
-                <Form style={{ width: '31%' }}>
+                <Form style={{ width: '31%' }} onSubmit={this.sendEmail}>
                     <Form.Group controlId="formGroupEmail">
                         <InputGroup>
 
                             <Form.Control
+                                value={this.state.email}
+                                onChange={(e) => this.handleChangeEmail(e)}
                                 aria-describedby="inputGroupPrepend"
                                 type="email"
                                 placeholder="Email"
@@ -120,5 +167,6 @@ const Recover = () => {
 
         </React.Fragment>
     )
+}
 }
 export default Recover

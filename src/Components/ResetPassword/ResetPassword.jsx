@@ -6,6 +6,10 @@ import { GoogleLogin } from 'react-google-login';
 import Email from '../../Assets/Images/email.png';
 import Lock from '../../Assets/Images/lock.png';
 import { Col, Row, Form, Button, InputGroup, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import history from '../../history';
 
 const responseGoogle = (response) => {
     console.log(response);
@@ -81,39 +85,86 @@ align-items: center;
 color: #000000;
 
 `
-const ResetPassowrd = () => {
-    return (
-        <React.Fragment>
-            <Container>
-                <Row>
-                    <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
-                </Row>
+// const ResetPassowrd = () => {
+class ResetPassowrd extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            password: '',
+        };
+        toast.configure({
+            autoClose: 2000,
+            draggable: false,
+        });
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
+    }
+    handleChangePassword(event) {
+        this.setState({ password: event.target.value });
+    }
+    resetPassword(event) {
+        event.preventDefault();
+        const password = ''.concat(this.state.password);
+        const token = ''.concat(localStorage.token)
+        axios.post('http://localhost:5001/user/reset-password', null,
+            { headers: { password: password, token: token } })
+            .then(res => {
+                   
+                if (res.data.ResetPasswordMessage == "Password Changed") {
+                    console.log("ana fel if");
+                    toast.success(res.data.ResetPasswordMessage, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                    history.push('/login')
+                }
+                else {
+                    console.log("ana fel else");
+                    toast.info(res.data.ResetPasswordMessage, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                }
 
-            </Container>
-            <StyledContainer>
-                <Form style={{ width: '29%' }}>
-                <Form.Group controlId="formGroupPassword">
-                        <InputGroup>
-                            <Form.Control type="password"
-                                placeholder="New Password"
-                                required />
-                            <InputGroup.Prepend>
-                                <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
-                            </InputGroup.Prepend>
-                        </InputGroup>
-                    </Form.Group>
-                  
+                //  console.log(res.data);  
+            })
 
-                    <Col sm={{ span: 12 }}>
-                        <Button variant="outline-primary" style={{ width: '442.86px', height: '71.43px', marginTop:'12%' }} type="submit">Save</Button>
-                    </Col>
-                </Form>
-            </StyledContainer>
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <Container>
+                    <Row>
+                        <Col xs="8" md="8" sm="8" lg="8">  <Logo draggable="false" src={logo} /></Col>
+                    </Row>
+
+                </Container>
+                <StyledContainer>
+                    <Form style={{ width: '29%' }} onSubmit={this.resetPassword}>
+                        <Form.Group controlId="formGroupPassword">
+                            <InputGroup>
+                                <Form.Control 
+                                    value={this.state.password}
+                                    onChange={(e) => this.handleChangePassword(e)}
+                                    type="password"
+                                    placeholder="New Password"
+                                    required />
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text style={{ backgroundColor: 'transparent', border: 'none' }} id="inputGroupPrepend"><img style={{ height: '20px' }} src={Lock} /></InputGroup.Text>
+                                </InputGroup.Prepend>
+                            </InputGroup>
+                        </Form.Group>
 
 
-            {/* </ButtonContainer> */}
+                        <Col sm={{ span: 12 }}>
+                            <Button variant="outline-primary" style={{ width: '442.86px', height: '71.43px', marginTop: '12%' }} type="submit">Save</Button>
+                        </Col>
+                    </Form>
+                </StyledContainer>
 
-        </React.Fragment>
-    )
+
+                {/* </ButtonContainer> */}
+
+            </React.Fragment>
+        )
+    }
 }
 export default ResetPassowrd
