@@ -21,6 +21,10 @@ color: #000000;
 `
 
 const SecondColImage = styled.img`
+@media(max-width:768px){
+    margin-left:30%;
+    margin-top:5%;
+}
 src: url(${props => props.src});
 height: 670px;
 width: 267px;
@@ -90,18 +94,17 @@ const SectionTwo = () => {
     return (
         <Container style={{ margin: '0px', padding: '0px', paddingTop: '14%', maxWidth: 'none' }}>
             <Row>
-                <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
+                <Col style={{ padding: '0px' }} md={12} lg={6} sm={12} xs={12}>
                     <TheWeb>The&nbsp;<Specified>Web</Specified></TheWeb>
                     <HowItWorks>How it</HowItWorks>
                     <Specified style={{marginLeft:'18%'}}>Works</Specified>
                     <ol>
-                        <ListItem>One coffee per day</ListItem>
-                        <ListItem>A internship</ListItem>
-                        <ListItem>The annual maintenance of your old website </ListItem>
+                        <ListItem>Upload your data</ListItem>
+                        <ListItem>Save the changes and wala, that's it!</ListItem>
                     </ol>
                     <CreateMyWeb>Create my web</CreateMyWeb>
                 </Col>
-                <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
+                <Col style={{ padding: '0px' }} md={12} lg={6} sm={12} xs={12}>
                     <SecondColImage src={SecondCol}></SecondColImage>
                 </Col>
             </Row>

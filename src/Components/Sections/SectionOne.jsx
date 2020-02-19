@@ -14,6 +14,11 @@ height: auto;
 width: -webkit-fill-available;
 `
 const Ad = styled.div`
+@media (max-width: 768px)  {
+  left: 7.75%;
+  width: 84%;
+  
+    }
 position: absolute;
 left: 5.75%;
 right: 7.75%;
@@ -25,6 +30,13 @@ opacity: 0.9;
 border-radius: 50px;
 `
 const SectionParagraph = styled.p`
+@media (max-width: 768px)  {
+  font-size:44px;
+  width:196px;
+  display:block;
+  left:36%;
+
+  }
 position: absolute;
 width: 656px;
 height: 79px;
@@ -47,6 +59,13 @@ text-align: center;
 color: #000000;
 `
 const Specified = styled.span`
+@media (max-width: 768px)  {
+    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.7);
+    font-size: 40px;
+    margin-top: 6%;
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    }
 height: 79px;
 font-family: 'Poppins', sans-serif;
 font-style: normal;
@@ -67,24 +86,35 @@ text-align: center;
 color: #000000;
 `
 const Ellipse = styled.div`
-@media (min-width: 1900px) {
-    left: 2295px;
-    top: 157px;
+  @media (min-width: 769px) and (max-width: 1025px) {
+    height: 130px;
+    width: 130px;
 
+  }
+  @media (max-width: 768px){
+    height: 130px;
+    width: 130px;
+    left: 81%;
   }
 position: absolute;
 width: 160px;
 height: 160px;
-left: 1265px;
+left: 86%;
 border-radius: 78px;
-top: 77px;
+top: 12%;
 z-index: 2;
 background: linear-gradient(226.31deg,#4092F1 -9.28%,#A77DFF 127.04%);
 box-shadow: 0px 0px 4px rgba(0,0,0,0.25);
 `
 const AdHeader = styled.h1`
 
-
+@media (max-width: 768px){
+    position: absolute;
+    font-size: 29px;
+    bottom: 76.56%;
+    width:100%;
+    font-size: 29px !important;
+}
 font-family: Quicksand;
 font-style: normal;
 font-weight: bold;
@@ -97,7 +127,15 @@ text-align: center;
 color: #303030;
 `
 const HeaderParagraph = styled.p`
-
+    @media (max-width:768px){
+        position: absolute;
+    left: 10.5%;
+    right: 52.5%;
+    width: 36%;
+    font-size: 25px;
+    top: 34.44% !important;
+    bottom: 47.22% !important;
+    }
     height: 147px;
     width: 466px;
     font-family: Quicksand;
@@ -117,6 +155,13 @@ const HeaderParagraph = styled.p`
     color: #414141;
 `
 const HeaderImage = styled.img`
+@media (max-width:768px){
+    position: absolute;
+    left: 47.31%;
+    right: 25.62%;
+    top: 61.11%;
+    bottom: 54.89%;
+}
 position: absolute;
 left: 43.31%;
 right: 43.62%;
@@ -135,6 +180,15 @@ text-align: center;
 color: #303030;
 `
 const AdButton = styled.button`
+@media (max-width:768px){
+    position: absolute;
+    left: 35.25%;
+    right: 36.75%;
+    width: 182px;
+    height: 58px;
+    top: 79.78%;
+    bottom: 32.89%;
+}
 position: absolute;
     left: 33.25%;
     right: 36.75%;
@@ -173,6 +227,12 @@ text-align: center;
 color: #303030;
 `
 const EllipseParagraph = styled.p`
+@media (min-width: 768px) and (max-width: 1025px) {
+    font-size: 25px;
+    top: 17%;
+    left: 18%;
+
+  }
 position: absolute;
     width: 101px;
     height: 89px;
@@ -199,14 +259,14 @@ const SectionOne = () => {
     return (
         <Container style={{ margin: '0px', padding: '0px', maxWidth: 'none' }}>
             <Row>
-                <Col style={{ padding: '0px' }} md={12} lg={12} sm={12} xs={12}>
+                <Col style={{ padding: '0px' }} md={12} >
                     <BackgroundImage src={businessWomen} />
                     <Ellipse><EllipseParagraph>29,99€<br></br><span style={{ fontSize: '24px', display: 'contents' }}>/month</span></EllipseParagraph></Ellipse>
 
                     <SectionParagraph>For you&nbsp;<Specified>lawyers</Specified> </SectionParagraph>
                     <Ad>
-                        <AdHeader style={{ position: 'absolute', left: '18.5%', right: '52.69%', top: '29.44%', bottom: '64.56%' }}>Your Web</AdHeader>
-                        <AdHeader style={{ position: 'absolute', left: '58.12%', right: '16.44%', top: '29.44%', bottom: '64.56%' }}>Digital Marketing</AdHeader>
+                        <AdHeader style={{ position: 'absolute', left: '15.5%', right: '52.69%', top: '29.44%', bottom: '64.56%' }}>Your Web</AdHeader>
+                        <AdHeader style={{ position: 'absolute', left: '55.12%', right: '16.44%', top: '29.44%', bottom: '64.56%' }}>Digital Marketing</AdHeader>
                         <HeaderParagraph style={{ position: 'absolute', left: '8.5%', right: '52.5%', top: '30.44%', bottom: '47.22%' }}>Your website optimized especially for viewing on smartphones </HeaderParagraph>
                         <HeaderParagraph style={{ position: 'absolute', left: '51.12%', right: '17.31%', top: '21.44%', bottom: '47.22%', wordSpacing: '5px' }}>We manage your Google Advertising Campaign</HeaderParagraph>
                         <HeaderImage src={plus} draggable={false} />

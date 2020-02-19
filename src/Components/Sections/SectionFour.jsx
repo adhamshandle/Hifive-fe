@@ -8,6 +8,7 @@ import sectionFiveBackground from '../../Assets/Images/section5background.png'
 import boy from '../../Assets/Images/boy.png'
 import boyGirl from '../../Assets/Images/boyGirl.png'
 import family from '../../Assets/Images/family.png'
+import MediaQuery from 'react-responsive';
 
 const BackgroundImage = styled.img`
 src: url(${props => props.src});
@@ -22,6 +23,9 @@ margin-left: 24px;
 margin-top: 24px;
 `
 const Box = styled.div`
+@media (max-width:768px){
+    position: unset;
+}
 width: 407.25px;
 height: 686.08px;
 position: absolute;
@@ -56,6 +60,9 @@ margin-left: 24px;
 margin-top: 7px;
 `
 const BoxPrice = styled.p`
+@media (max-width:768px){
+    position: unset;
+}
 position: absolute;
 width: 170.69px;
 height: 85.75px;
@@ -74,6 +81,9 @@ text-align: center;
 color: #000000;
 `
 const BoxMonth = styled.p`
+@media (max-width:768px){
+    position: unset;
+}
 position: absolute;
 width: 126.16px;
 height: 51.95px;
@@ -94,6 +104,9 @@ text-align: center;
 color: #676767;
 `
 const BoxContent = styled.p`
+@media (max-width:768px){
+    position: unset;
+}
 position: absolute;
 width: 274px;
 height: 191px;
@@ -112,6 +125,9 @@ text-align: center;
 color: #000000;
 `
 const BoxBtn = styled.button`
+@media (max-width:768px){
+    position: unset;
+}
 position: absolute;
 width: 406px;
 height: 686px;
@@ -139,43 +155,93 @@ border-radius: 5px;
 
 const SectionFour = () => {
     return (
-        <Container style={{ margin: '0px', padding: '0px', maxWidth: 'none' }}>
-            <Row>
-                <Col style={{ padding: '0px' }} md={4} lg={4} sm={4} xs={4}>
-                    <BackgroundImage src={sectionFiveBackground} />
+        <React.Fragment>
+            <MediaQuery query="(min-device-width: 1024px)">
+                <Container style={{ margin: '0px', padding: '0px', maxWidth: 'none' }}>
+                    <Row>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <BackgroundImage src={sectionFiveBackground} />
 
-                    <Box>
-                        <BoxBackgroundImage src={boy} />
-                        <BoxHeader>FREELANCE</BoxHeader>
-                        <BoxPrice >29.99 €</BoxPrice>
-                        <BoxMonth>month</BoxMonth>
-                        <BoxContent> Website <br/> + <br/> Google Advertising Campaigns Management Add 1 lawyer to the website </BoxContent>
-                        <BoxBtn>Start free</BoxBtn>
-                    </Box>
+                            <Box>
+                                <BoxBackgroundImage src={boy} />
+                                <BoxHeader>FREELANCE</BoxHeader>
+                                <BoxPrice >29.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent> Website <br /> + <br /> Google Advertising Campaigns Management Add 1 lawyer to the website </BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
 
-                </Col>
-                <Col style={{ padding: '0px' }} md={4} lg={4} sm={4} xs={4}>
-                    <Box>
-                        <BoxBackgroundImage src={boyGirl} />
-                        <BoxHeader>ASSOCIATES</BoxHeader>
-                        <BoxPrice >49.99 €</BoxPrice>
-                        <BoxMonth>month</BoxMonth>
-                        <BoxContent>Website <br/> + <br/> Google Advertising Campaigns Management Add 2 lawyers to the website</BoxContent>
-                        <BoxBtn>Start free</BoxBtn>
-                    </Box>
-                </Col>
-                <Col style={{ padding: '0px' }} md={4} lg={4} sm={4} xs={4}>
-                    <Box>
-                        <BoxBackgroundImage src={family} />
-                        <BoxHeader>LAW FIRM</BoxHeader>
-                        <BoxPrice >99.99 €</BoxPrice>
-                        <BoxMonth>month</BoxMonth>
-                        <BoxContent>Website <br/> + <br/> Google Advertising Campaigns Management Add more than 2 lawyers to the website</BoxContent>
-                        <BoxBtn>Start free</BoxBtn>
-                    </Box>
-                </Col>
-            </Row>
-        </Container>
+                        </Col>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <Box>
+                                <BoxBackgroundImage src={boyGirl} />
+                                <BoxHeader>ASSOCIATES</BoxHeader>
+                                <BoxPrice >49.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent>Website <br /> + <br /> Google Advertising Campaigns Management Add 2 lawyers to the website</BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
+                        </Col>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <Box>
+                                <BoxBackgroundImage src={family} />
+                                <BoxHeader>LAW FIRM</BoxHeader>
+                                <BoxPrice >99.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent>Website <br /> + <br /> Google Advertising Campaigns Management Add more than 2 lawyers to the website</BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
+                        </Col>
+                    </Row>
+                </Container>
+            </MediaQuery>
+            <MediaQuery query="(max-device-width: 768px)">
+                <Container style={{ margin: '0px', padding: '0px', maxWidth: 'none' }}>
+
+                    <Row>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <BackgroundImage src={sectionFiveBackground} />
+
+                            <Box>
+                                <BoxBackgroundImage src={boy} />
+                                <BoxHeader>FREELANCE</BoxHeader>
+                                <BoxPrice >29.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent> Website <br /> + <br /> Google Advertising Campaigns Management Add 1 lawyer to the website </BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
+
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <Box>
+                                <BoxBackgroundImage src={boyGirl} />
+                                <BoxHeader>ASSOCIATES</BoxHeader>
+                                <BoxPrice >49.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent>Website <br /> + <br /> Google Advertising Campaigns Management Add 2 lawyers to the website</BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col style={{ padding: '0px' }} md={12} lg={4} sm={12} xs={12}>
+                            <Box>
+                                <BoxBackgroundImage src={family} />
+                                <BoxHeader>LAW FIRM</BoxHeader>
+                                <BoxPrice >99.99 €</BoxPrice>
+                                <BoxMonth>month</BoxMonth>
+                                <BoxContent>Website <br /> + <br /> Google Advertising Campaigns Management Add more than 2 lawyers to the website</BoxContent>
+                                <BoxBtn>Start free</BoxBtn>
+                            </Box>
+                        </Col>
+                    </Row>
+                </Container>
+
+            </MediaQuery>
+        </React.Fragment>
     )
 }
 export default SectionFour

@@ -156,7 +156,7 @@ const SectionThree = () => {
     return (
         <Container style={{ margin: '0px', padding: '0px', paddingTop: '14%', maxWidth: 'none' }}>
             <Row>
-                <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
+                <Col style={{ padding: '0px' }} md={12} lg={6} sm={12} xs={12}>
                     <FirstColImage src={FirstCol}></FirstColImage>
                     <Marketing  style={{marginLeft:'28%'}}> <Digital>How&nbsp;</Digital>Much?</Marketing>
                     <Marketing style={{marginLeft:'28%'}}>For Less</Marketing>
@@ -167,7 +167,7 @@ const SectionThree = () => {
                         <ListItem> The annual maintenance of your old website  </ListItem>
                     </ol>
                 </Col>
-                <Col style={{ padding: '0px' }} md={6} lg={6} sm={6} xs={6}>
+                <Col style={{ padding: '0px' }} md={12} lg={6} sm={12} xs={12}>
                    
                     <Marketing> <Digital>Digital&nbsp;</Digital>Marketing</Marketing>
                     <HowItWorks>How it</HowItWorks>
